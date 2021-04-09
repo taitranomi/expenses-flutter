@@ -14,6 +14,7 @@ class TransactionList extends StatelessWidget {
       height: 300,
       child: transactions.isEmpty
           ? Column(
+              mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Text('No transactions yet',
                     style: Theme.of(context).textTheme.title),
@@ -27,6 +28,7 @@ class TransactionList extends StatelessWidget {
               ],
             )
           : ListView.builder(
+              shrinkWrap: true,
               itemBuilder: (ctx, index) {
                 //   return Card(
                 //     child: Row(

@@ -64,11 +64,14 @@ class _MyHomePageState extends State<MyHomePage> {
         title: txTitle,
         amount: txAmount,
         date: chosenDate,
-        id: new Random().toString());
+        id: DateTime.now().toString()
+      );
 
     setState(() {
       _userTransactions.add(newTx);
     });
+
+    print('Fucking ID: ' + newTx.id);
   }
 
   void _startAddNewTransaction(BuildContext ctx) {
@@ -106,13 +109,13 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          // mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Chart(_recentTransactions),
-            Expanded(
-              child: TransactionList(_userTransactions, _deleteTransaction),
-            ),
+            
+            TransactionList(_userTransactions, _deleteTransaction),
+          
           ],
         ),
       ),
